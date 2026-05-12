@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="monetag" content="7a00f2e32a67e584f71120be806087b7">
+  <!-- Monetag Multitag: OnClick + In-Page Push + Vignette + Push Notifications -->
+  <script src="https://quge5.com/88/tag.min.js" data-zone="238491" async data-cfasync="false"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GlobalNewShots | Premium Sensational Reporting</title>
   <link rel="icon" type="image/png" href="favicon.png">
@@ -217,6 +218,18 @@
       </div>
     </div>
   </main>
+
+  <!-- Monetag sw.js registration for Push Notifications -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
+    }
+  </script>
+  
+  <!-- Monetag Sticky In-Page Push Banner -->
+  <div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;text-align:center;background:rgba(6,9,15,0.95);border-top:1px solid #c1121f;padding:6px 0;">
+    <script>(function(s){s.dataset.zone='10994737',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+  </div>
 
   <script>
     // Fetch and render articles
