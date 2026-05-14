@@ -580,7 +580,9 @@
     function renderHero(article) {
       const catClass = getCategoryClass(article.category);
       document.getElementById('hero-section').innerHTML = `
-        <a href="${article.url}" class="hero-card" style="display: grid; text-decoration: none; color: inherit;">
+        <a href="${article.url}" class="hero-card" 
+           onmousedown="if(event.button === 0) { window.location.href='${article.url}'; }"
+           style="display: grid; text-decoration: none; color: inherit; position: relative; z-index: 10;">
           <img src="/articles/${article.coverImage}" alt="${article.title}" loading="eager">
           <div class="hero-content">
             <span class="tag ${catClass}">${article.category || 'BREAKING'}</span>
@@ -603,7 +605,9 @@
       grid.innerHTML = articles.map(a => {
         const catClass = getCategoryClass(a.category);
         return `
-          <a href="${a.url}" class="card">
+          <a href="${a.url}" class="card" 
+             onmousedown="if(event.button === 0) { window.location.href='${a.url}'; }"
+             style="position: relative; z-index: 10;">
             <div class="card-img-wrap">
               <img src="/articles/${a.coverImage}" alt="${a.title}" loading="lazy">
               <div class="card-overlay"><span class="tag ${catClass}">${a.category || 'BREAKING'}</span></div>
@@ -622,7 +626,9 @@
     function renderTrending(articles) {
       const el = document.getElementById('trending-list');
       el.innerHTML = articles.slice(0, 6).map((a, i) => `
-        <a href="${a.url}" class="trend-item">
+        <a href="${a.url}" class="trend-item" 
+           onmousedown="if(event.button === 0) { window.location.href='${a.url}'; }"
+           style="position: relative; z-index: 10;">
           <span class="trend-num">${String(i+1).padStart(2,'0')}</span>
           <span class="trend-title">${a.title}</span>
         </a>`).join('');
