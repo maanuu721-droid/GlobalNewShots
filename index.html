@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -257,6 +257,11 @@
       transition: transform .3s, box-shadow .3s, border-color .3s;
       display: flex;
       flex-direction: column;
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+      color: inherit;
+      text-decoration: none;
     }
     .card:hover {
       transform: translateY(-5px);
@@ -575,7 +580,7 @@
     function renderHero(article) {
       const catClass = getCategoryClass(article.category);
       document.getElementById('hero-section').innerHTML = `
-        <a href="${article.url}" class="hero-card">
+        <a href="${article.url}" class="hero-card" style="display: grid; text-decoration: none; color: inherit;">
           <img src="/articles/${article.coverImage}" alt="${article.title}" loading="eager">
           <div class="hero-content">
             <span class="tag ${catClass}">${article.category || 'BREAKING'}</span>
@@ -598,19 +603,19 @@
       grid.innerHTML = articles.map(a => {
         const catClass = getCategoryClass(a.category);
         return `
-          <div class="card">
-            <a href="${a.url}" class="card-img-wrap">
+          <a href="${a.url}" class="card">
+            <div class="card-img-wrap">
               <img src="/articles/${a.coverImage}" alt="${a.title}" loading="lazy">
               <div class="card-overlay"><span class="tag ${catClass}">${a.category || 'BREAKING'}</span></div>
-            </a>
+            </div>
             <div class="card-content">
-              <a href="${a.url}" class="card-title">${a.title}</a>
+              <h3 class="card-title">${a.title}</h3>
               <div class="card-meta">
                 <span>Global News Hots Desk</span>
                 <span>${formatDate(a.date)}</span>
               </div>
             </div>
-          </div>`;
+          </a>`;
       }).join('');
     }
 
